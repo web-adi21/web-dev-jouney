@@ -1,0 +1,41 @@
+.btn-div{
+  display: flex;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+body{
+  text-align: center;
+}
+.red-btn #red {
+  width: 160px;
+  height: 130px;
+  background-color: red;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+.blue-btn #blue{
+  width: 160px;
+  height: 130px;
+  background-color: blue;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+.green-btn #green{
+  width: 160px;
+  height: 130px;
+  background-color: lime;
+  border: 5px solid black;
+  border-radius: 20px;
+}
+.orange-btn #orange{
+  width: 160px;
+  height: 130px;
+  background-color: orange;
+  border: 5px solid black;
+  border-radius: 20px;
+}
