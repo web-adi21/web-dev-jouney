@@ -16,6 +16,12 @@ app.listen(port, () => {
   console.log(`Listening on port ${8080}`);
 });
 
-app.get("/ankush",(req , res) => {
-  res.send("yOU CAME TO DIFF DIRECTORY")
+app.get("/ig/:username", (req , res) => {
+  let { username } = req.params;
+  const instadata = require("./data.json");
+  const data = instadata[username];
+  
+  
+  res.render("instagram.ejs", {data})
+  
 })
