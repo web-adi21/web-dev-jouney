@@ -9,4 +9,4 @@ app.listen(port, () => {
 
 app.use((req,res) => {
   console.log("req was recieved");
-});
+}); 
