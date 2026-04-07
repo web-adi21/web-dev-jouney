@@ -9,6 +9,22 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.set(express.static(path.join(__dirname, "public")));
 
+let posts = [
+  {
+    username: "Adi",
+    content: "I am happy"
+  },
+   {
+    username: "julie",
+    content: "I am angry"
+  },
+   {
+    username: "max",
+    content: "I am sad"
+  }
+]
+
+
 app.get("/", (req , res) => {
   res.send("server working well");
 })
@@ -16,3 +32,7 @@ app.get("/", (req , res) => {
 app.listen(port , () => {
   console.log("Listening on port 8080");
 });
+
+app.get("/post", (req , res) => {
+  res.render("index.ejs", { posts });
+})
