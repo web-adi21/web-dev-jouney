@@ -20,17 +20,17 @@
 
 
 <div class="body-div">
-<%=for(thing of posts) {%>
+<% for(let thing of posts) { %>
 <div class="container-div">
-  <div class="headingdiv"><<h2 class="username"><%=thing.username%></h2></div>
+  <div class="headingdiv"><h2 class="username"><%=thing.username%></h2></div>
   <div class="imagediv"><img class="img" src="<%=thing.image%>"></div>
   <div class="statsdiv">
-    <h6 class="likes"><%=thing.likes%></h6>
-    <h6 class="comments"><%=thing.comments%></h6>
+    <h6 class="likes">likes:<%=thing.likes%></h6>
+    <h6 class="comments">comments:<%=thing.comments%></h6>
   </div>
   
 </div> 
-<%=}%>
+<%}%>
 </div>
 
 </body>
