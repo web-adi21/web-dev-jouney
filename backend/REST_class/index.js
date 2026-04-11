@@ -50,7 +50,7 @@ app.get("/posts/new", (req , res) => {
 app.post("/posts", (req , res) => {
   let id = uuidv4();
   let  { username, content } = req.body;
-  posts.push({id,username , content});
+  posts.push({ id, username , content});
   res.redirect("/posts");  
 })
 
@@ -61,3 +61,7 @@ app.get("/posts/:id", (req , res) => {
   console.log(post);
   res.render("show.ejs", { post });
 });
+
+app.patch("/posts/:id", (req,res) => {
+  res.send("Patch req working well");
+})
