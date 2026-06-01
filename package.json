@@ -1,0 +1,23 @@
+{
+  "name": "web-dev-jouney",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/web-adi21/web-dev-jouney#readme",
+  "bugs": {
+    "url": "https://github.com/web-adi21/web-dev-jouney/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-adi21/web-dev-jouney.git"
+  },
+  "license": "ISC",
+  "author": "Aditya",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.4.0"
+  }
+}
