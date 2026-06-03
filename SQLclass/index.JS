@@ -33,7 +33,7 @@ for(let i = 0; i<100;i++) {
 }
 
 
-
+let count
 
 
 
@@ -42,8 +42,23 @@ app.get("/", (req , res) => {
   try {
   connection.query( q, (err , result) => {
     if(err) throw err;
-    let count = result[0]["count(*)"];
+    count = result[0]["count(*)"];
     res.render("home.ejs", { count });
+  });
+  } catch (err) {
+    console.log(err);
+    res.send("SOME ERROR")
+  };
+  
+});
+
+app.get("/users", (req , res) => {
+  let q = "SELECT * FROM user_1";
+  try {
+  connection.query( q, (err , result) => {
+    if(err) throw err;
+    let data = result;
+    res.render("users.ejs", { data }, { count });
   });
   } catch (err) {
     console.log(err);
