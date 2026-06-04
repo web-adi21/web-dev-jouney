@@ -7,16 +7,22 @@
 </head>
 <body>
   <h1>USERS</h1>
-  <%for(let i =0;i<count;i++) {%>
-    <p>
-      ID: <%=data[i][id]%>
-    </p>
-    <p>
-      USERNAME: <%=data[i][username]%>
-    </p>
-    <p>
-      Email address: <%=data[i][email]%>
-    </p>
+  <%for(let i =0;i<data.length;i++) {%>
+    <h3><%= i+1 %></h3>
+      <p>
+        ID: <%=data[i]['id']%>
+      </p>
+      <p>
+        USERNAME: <%=data[i]['username']%>
+      </p>
+      <p>
+        Email address: <%=data[i]['email']%>
+      </p>
+    <form method="GET" action = "/users/<%=data[i]['id']%>/edit">
+      <button>Edit</button>
+    </form>
+    <br>
+    <br>
     <%}%>
 </body>
 </html>

@@ -58,13 +58,29 @@ app.get("/users", (req , res) => {
   connection.query( q, (err , result) => {
     if(err) throw err;
     let data = result;
-    res.render("users.ejs", { data }, { count });
+    res.render("users.ejs", { data });
   });
   } catch (err) {
     console.log(err);
     res.send("SOME ERROR")
   };
   
+});
+
+app.get("/users/:id/edit", (req, res) => {
+  let id = req.params.id;
+  let q = `SELECT * FROM user_1 WHERE id="${id}"`;
+ try {
+  connection.query( q, (err , result) => {
+    if(err) throw err;
+    let selectedUser = result;
+    res.render("edit.ejs", { selectedUser });
+    console.log(selectedUser);
+  });
+  } catch (err) {
+    console.log(err);
+    res.send("SOME ERROR")
+  };
 });
 
 app.listen("8080", () => {
