@@ -18,3 +18,24 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+// const user3 = new User({
+//     name : "Savi",
+//     email:"Savi@gmail.com", 
+//     age:48
+//   });
+
+//  user3.save()
+//       .then((res) => {
+//       console.log(res);
+//     }).catch((err) => {
+//       console.log(err);
+//     });
+    
+    User.findByIdAndUpdate("6a269aff461094e195b5a1e4" , {name : "uri",email:"uri@gmail.com"}, {new: true})
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+    
