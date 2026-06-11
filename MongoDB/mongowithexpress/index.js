@@ -26,3 +26,7 @@ app.get("/",(req , res) => {
 app.listen(8080, () => {
   console.log("app is listening");
 });
+
+app.get("/chats", (req , res) => {
+
+});
