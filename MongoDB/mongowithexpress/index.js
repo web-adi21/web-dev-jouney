@@ -1,8 +1,8 @@
 const express = require("express");
-const mongoose = require("express");
+const mongoose = require("mongoose");
 const app = express();
 const path = require('path');
-const Chat = require('Chat');
+const Chat = require('./models/chat.js');
 
 main()
   .then(() => {
@@ -20,7 +20,7 @@ async function main() {
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-
+ 
 let chat1 = new Chat({
   fromUser : "navya",
   toUser : "aditya",
