@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chats</title>
+</head>
+<body>
+  <h1>Chats Transmitted</h1>
+  <% for(let i =0;i<chats.length;i++) { %>   
+        <form>
+          <h3>Sender : <%= chats[i].fromUser %></h3>
+          <h3>reciever : <%= chats[i].toUser %> </h3>
+          <h3>Message : <%= chats[i].content %></h3>
+          <h3>msg id : <%= chats[i]._id %></h3>
+          <h3>date and time : <%= chats[i].created_at%></h3>
+        </form>
+        <br>
+        <br
+  <%}%>
+
+</body>
+</html>

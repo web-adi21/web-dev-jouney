@@ -8,7 +8,7 @@ main()
   .catch((err) => console.log(err));
 
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/test');
+    await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 };
 
 
@@ -22,7 +22,6 @@ let allChats = [
   },
   {
     fromUser : "hrithik",
-    toUser : "navya",
     content: "yo how are you",
     created_at: new Date()
   },
@@ -49,8 +48,16 @@ let allChats = [
     toUser : "palot",
     content: "heheehehahahahaha",
     created_at: new Date()
-  }
-]
+  }];
 
 
-Chat.insertMany(allChats);
+  Chat.insertMany(allChats)
+      .then((res) => {
+        console.log("data saved successfulyy");
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        mongoose.connection.close();
+      })

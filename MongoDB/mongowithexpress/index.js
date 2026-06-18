@@ -21,51 +21,20 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.listen(3000, () => {
+  console.log("Server listening on port 3000")
+});
 
 
 app.get("/",(req , res) => {
   res.send("Working Root");
 });
 
-app.listen(8080, () => {
-  console.log("app is listening");
-});
 
-app.get("/chats", (req , res) => {
 
+
+app.get("/chats", async (req , res) => {
+  let chats = await Chat.find();
+  res.render('chats.ejs', { chats });
+  
 });
