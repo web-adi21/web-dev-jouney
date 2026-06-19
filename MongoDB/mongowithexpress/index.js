@@ -19,12 +19,30 @@ async function main() {
  
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
-
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({extended: true}));
  
 app.listen(3000, () => {
   console.log("Server listening on port 3000")
 });
 
+app.get("/chats/new", (req,res) => {
+  res.render('new.ejs')
+  
+})
+
+app.post("/chats", (req,res) => {
+  let {from , to , message} = req.body;
+  let newChat = new Chat({
+    fromUser: from,
+    toUser: to,
+    content: message,
+    created_at: new Date()
+  })
+  newChat.save()
+    .then(() => {res.redirect('/chats')})
+  
+})
 
 app.get("/",(req , res) => {
   res.send("Working Root");

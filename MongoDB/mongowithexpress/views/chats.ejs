@@ -4,19 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chats</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
   <h1>Chats Transmitted</h1>
+  <form method="get" action="/chats/new">
+    <button>New Chat</button>
+  </form>
   <% for(let i =0;i<chats.length;i++) { %>   
-        <form>
+        <form class="chats">
           <h3>Sender : <%= chats[i].fromUser %></h3>
           <h3>reciever : <%= chats[i].toUser %> </h3>
           <h3>Message : <%= chats[i].content %></h3>
           <h3>msg id : <%= chats[i]._id %></h3>
           <h3>date and time : <%= chats[i].created_at%></h3>
+          <button>Delete</button>
+          <button>Edit</button>
         </form>
         <br>
-        <br
+        <hr>
   <%}%>
 
 </body>
