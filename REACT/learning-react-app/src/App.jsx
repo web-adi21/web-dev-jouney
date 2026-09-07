@@ -1,6 +1,7 @@
 
 import './App.css'
-import ProductTab from "./ProductTab.jsx"
+import ProductTab from "./ProductTab.jsx";
+import Button from "./button.jsx";
 
 
 function App() {
@@ -10,8 +11,7 @@ let style = {
 }
 return(
     <>
-        <h2 style={style}>BlockBuster Deals!! SHOP NOW!</h2>
-      <ProductTab />
+        <Button />
     </>
 )
 }
