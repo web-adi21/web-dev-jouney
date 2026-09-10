@@ -1,13 +1,15 @@
 import { useState } from 'react'
-import Counter from './Counter.jsx'
+import Counter from './counter.jsx';
 import './App.css'
+import LikeButton from './LikeButton.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <Counter/>
+     <p>States in React</p>
+     <LikeButton/>
       
     </>
   )
