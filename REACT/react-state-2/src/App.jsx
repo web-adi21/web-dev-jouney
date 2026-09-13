@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import LudoBoard from './LudoBoard';
-import './App.css'
+import TodoList from "./TodoList"
 
 function App() {
   
 
   return (
    <>
-      <LudoBoard />
+      
+      <TodoList />
    </>
   )
 }
