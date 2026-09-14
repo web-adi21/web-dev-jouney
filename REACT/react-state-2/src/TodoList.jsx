@@ -5,16 +5,21 @@ export default function TodoList() {
   let [todos, setTodos] = useState([]);
   let [newTodo, setNewTodo] = useState("");
 
-  let add = (event) => {
-    console.log(event.target);
+  let add = () => {
+    setTodos([...todos, newTodo]);
+    setNewTodo("");
+  }
+
+  let updateTodoValue = (event) => {
+    setNewTodo(event.target.value);
   }
 
   return(
     <div>
-      <input value={newTodo} placeholder="Add a task" onChange={add}></input>
+      <input value={newTodo} placeholder="Add a task" onChange={updateTodoValue}></input>
       <br></br>
       <br></br>
-      <button>Add Task</button>
+      <button onClick={add}>Add Task</button>
       <br></br>
       <br></br>
       <br></br>
@@ -23,9 +28,9 @@ export default function TodoList() {
     <h4>Tasks Todo</h4>
     <ul>
       {
-        todos.map((todo) => {
-          <li>{todo}</li>
-        })
+        todos.map((todo, index) => (
+          <li key={`${todo}-${index}`}>{todo}</li>
+        ))
       }
     </ul>
     </div>
