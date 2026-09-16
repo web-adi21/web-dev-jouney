@@ -1,18 +1,26 @@
 import { useState } from "react";
-
+import { v4 as uuidv4 } from 'uuid';
+ 
 
 export default function TodoList() {
-  let [todos, setTodos] = useState([]);
+  let [todos, setTodos] = useState([{task: "sample-task",id:uuidv4()}]);
   let [newTodo, setNewTodo] = useState("");
 
   let add = () => {
-    setTodos([...todos, newTodo]);
+    setTodos((prevTodos) => {
+      return [...prevTodos, {task: newTodo, id: uuidv4()}]
+    });
     setNewTodo("");
   }
 
   let updateTodoValue = (event) => {
     setNewTodo(event.target.value);
   }
+
+  let DeleteTodo = (id) => {
+    console.log(id);
+    }
+
 
   return(
     <div>
@@ -28,8 +36,14 @@ export default function TodoList() {
     <h4>Tasks Todo</h4>
     <ul>
       {
-        todos.map((todo, index) => (
-          <li key={`${todo}-${index}`}>{todo}</li>
+        todos.map((todo) => (
+          <li key={todo.id}>
+            <span>
+              {todo.task}
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <button>Delete</button>
+            </span>
+          </li>
         ))
       }
     </ul>
