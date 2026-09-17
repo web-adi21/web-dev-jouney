@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LudoBoard from './LudoBoard';
 import TodoList from "./TodoList"
+import './App.css';
 
 function App() {
   

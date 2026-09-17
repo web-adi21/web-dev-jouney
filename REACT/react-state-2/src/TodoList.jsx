@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
  
 
 export default function TodoList() {
-  let [todos, setTodos] = useState([{task: "sample-task",id:uuidv4()}]);
+  let [todos, setTodos] = useState([{task: "sample-task",id:uuidv4(),isDone:false}]);
   let [newTodo, setNewTodo] = useState("");
 
   let add = () => {
@@ -34,21 +34,22 @@ export default function TodoList() {
   );
 };
 
-  let upperCaseOne = (id) => {
-    setTodos((prevTodos) => 
+ let doneTodo = (id) => {
+  setTodos((prevTodos) => 
     prevTodos.map((todo) => {
-      if(todo.id == id){
-        return {
-        ...todo,
-        task: todo.task.toUpperCase()
-      }
-      } else  {
-        return todo;
-      }
+      if(todo.id == id) {
+        return{
+          ...todo,
+          isDone:true
+        } 
+      }else {
+          return todo;
+        }
       
-    })
-  );
-  }
+    }))
+ }
+
+  
 
   return(
     <div>
@@ -66,11 +67,11 @@ export default function TodoList() {
       {
         todos.map((todo) => (
           <li key={todo.id}>
-            <span>
+            <span className={todo.isDone ? "task-done" : ""}>
               {todo.task}
               &nbsp;&nbsp;&nbsp;&nbsp;
               <button onClick={() => {deleteTodo(todo.id)}}>Delete</button>
-              <button onClick={() => {upperCaseOne(todo.id)}}>UpperCase One</button>
+              <button onClick={() => {doneTodo(todo.id)}}>Done</button>
             </span>
           </li>
         ))
