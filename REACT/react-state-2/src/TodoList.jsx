@@ -17,8 +17,9 @@ export default function TodoList() {
     setNewTodo(event.target.value);
   }
 
-  let DeleteTodo = (id) => {
-    console.log(id);
+  let deleteTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id != id));
+    
     }
 
 
@@ -41,7 +42,7 @@ export default function TodoList() {
             <span>
               {todo.task}
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <button>Delete</button>
+              <button onClick={() => {deleteTodo(todo.id)}}>Delete</button>
             </span>
           </li>
         ))
