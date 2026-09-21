@@ -6,4 +6,4 @@ export default function Ticket({ digits }) {
       <h4>Lottery Ticket: {digits[0]}{digits[1]}{digits[2]}</h4>
     </div>
   );
-}
+} 
