@@ -10,6 +10,29 @@ import { useState } from "react";
 export default function SearchBox() {
   let [city,setCity] = useState("");
 
+  let API_URL = "https://api.openweathermap.org/data/2.5/weather"
+  let API_KEY = "db5784df224561944d9baad2618d4461"
+
+  let getWeatherInfo = async () => {
+    let response = await fetch(`${API_URL}?q=${city}&appid=${API_KEY}&units=metric`);
+    let jsonResponse = await response.json();
+    
+    let result = {
+      temp: jsonResponse.main.temp,
+      humidity: jsonResponse.main.himidity,
+      feelsLike:jsonResponse.main.feels_like,
+      humidity:jsonResponse.main.humidity,
+      grndlvl:jsonResponse.main.grnd_level,
+      weather:jsonResponse.weather[0].description,
+      lat:jsonResponse.coord.lat,
+      lon:jsonResponse.coord.lon,
+    }
+    console.log(result);
+  }
+  
+
+  
+
   let handleChange = (event) => {
     setCity(event.target.value);
   }
@@ -17,16 +40,18 @@ export default function SearchBox() {
   let handleSubmit = (event) => {
     event.preventDefault();
     console.log(city);
+    getWeatherInfo();
     setCity("");
+    
   }
   
   return(
     <div className="SearchBox">
       <h3>Search For The City</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <TextField id="standard-basic" label="Standard" variant="standard" required value={city} onChange={handleChange}/>
         <br></br><br></br>
-        <Button variant="outlined" type='submit' >Search</Button>
+        <Button variant="outlined" type='submit'>Search</Button>
       </form>
     </div>
   )
