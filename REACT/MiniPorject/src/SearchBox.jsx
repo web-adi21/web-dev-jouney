@@ -21,17 +21,16 @@ export default function SearchBox() {
       temp: jsonResponse.main.temp,
       humidity: jsonResponse.main.himidity,
       feelsLike:jsonResponse.main.feels_like,
-      humidity:jsonResponse.main.humidity,
       grndlvl:jsonResponse.main.grnd_level,
       weather:jsonResponse.weather[0].description,
-      lat:jsonResponse.coord.lat,
-      lon:jsonResponse.coord.lon,
+      windspeed: jsonResponse.wind.speed,
+      winddef: jsonResponse.wind.deg
     }
     console.log(result);
   }
   
 
-  
+   
 
   let handleChange = (event) => {
     setCity(event.target.value);
