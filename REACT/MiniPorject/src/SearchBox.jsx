@@ -46,7 +46,7 @@ export default function SearchBox() {
   
   return(
     <div className="SearchBox">
-      <h3>Search For The City</h3>
+      
       <form onSubmit={handleSubmit}>
         <TextField id="standard-basic" label="Standard" variant="standard" required value={city} onChange={handleChange}/>
         <br></br><br></br>
